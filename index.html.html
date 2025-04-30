@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #caddf8);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 60px;
+      background-color: #6680af;
+      color: #fff;
+      border-radius: 20px;
+      margin: 40px auto;
+      max-width: 1100px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      animation: slideIn 1.2s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro {
+      text-align: left;
+      max-width: 65%;
+    }
+
+    .intro p {
+      margin-bottom: 25px;
+    }
+
+    .intro h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-top: 20px;
+    }
+
+    .intro .name {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #efcd8a;
+    }
+
+    .intro .sub-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      font-weight: 600;
+      animation: sparkle 2s infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0.7; text-shadow: 0 0 5px #f1c27d, 0 0 10px #eab6e4; }
+      100% { opacity: 1; text-shadow: 0 0 10px #f1c27d, 0 0 20px #deaddc; }
+    }
+
+    .profile {
+      text-align: right;
+    }
+
+    .profile img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: popIn 1.2s ease-in-out;
+      transition: transform 0.3s ease;
+    }
+
+    .profile img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .divider {
+      height: 4px;
+      width: 80px;
+      background: linear-gradient(to right, #ff6a00, #ffb700);
+      margin-top: -10px;
+      margin-bottom: 30px;
+      border-radius: 3px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+    }
+
+    .portfolio-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .portfolio-gallery img {
+      width: 240px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      animation: slideIn 1.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      0% { transform: scale(0.8) translateY(30px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .portfolio-gallery img:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+
+    .vector-graphics {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 40px;
+    }
+
+    .vector-graphics svg {
+      width: 60px;
+      height: 60px;
+      fill: #ffb700;
+      transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    .vector-graphics svg:hover {
+      transform: scale(1.2);
+      fill: #ff6a00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #dbe2ef;
+      color: #2c3e50;
+      font-size: 0.9rem;
+    }
+
+    .summary {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .flex-columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 250px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .education {
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .intro {
+        max-width: 100%;
+      }
+      .contact, .flex-columns {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-info {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="intro">
+      <p>Welcome to my Curriculum Vitae</p>
+      <div class="name">Shokriya Raoufi</div>
+      <div class="sub-title">Graphic Designer & Web Designer</div>
+    </div>
+    <div class="profile">
+      <img src="profile.JPG" alt="Profile Photo" />
+    </div>
+  </header>
+
+  <section class="summary" data-aos="fade-up">
+    <h2><i class="fas fa-user"></i> Professional Summary</h2>
+    <div class="divider"></div>
+    <p>I am a passionate and detail-oriented graphic and web designer with 3 years of hands-on experience. I specialize in creating modern, user-friendly designs for both digital and print media. My goal is to blend creativity with practical solutions to deliver impactful visual content.</p>
+  </section>
+
+  <section class="flex-columns skills" data-aos="fade-up">
+    <div class="column">
+      <h2><i class="fas fa-tools"></i> Skills</h2>
+      <div class="divider"></div>
+      <p>Adobe Photoshop, Adobe Illustrator, 3D Printing & Modeling, HTML / CSS / Web Design, Microsoft Office</p>
+    </div>
+  </section>
+
+  <section class="flex-columns education" data-aos="fade-up">
+    <div class="column">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="divider"></div>
+      <p>Studied Graphic and Web Design at CTI Center. Developed skills in design tools and web technologies.</p>
+    </div>
+  </section>
+
+  <section class="experience" data-aos="fade-up">
+    <h2><i class="fas fa-briefcase"></i> Experience</h2>
+    <div class="divider"></div>
+    <ul>
+      <li><strong>Afghan Soda – Graphic Designer (6 months):</strong> Created visual identity and marketing materials including product posters, social media graphics, and packaging designs that boosted brand engagement by 30%.</li>
+      <li><strong>Goldasteh Academy – Graphic Designer (6 months):</strong> Designed educational content, branding materials, and event banners to promote learning and increase visibility of academy programs.</li>
+      <li><strong>UNICEF – Volunteer Graphic Designer (2 years):</strong> Contributed to awareness campaigns through poster design, social media content, and brochures, supporting community engagement and public health initiatives.</li>
+    </ul>
+  </section>
+
+  <section class="portfolio" data-aos="zoom-in-up">
+    <h2><i class="fas fa-images"></i> Portfolio</h2>
+    <div class="divider"></div>
+    <div class="portfolio-gallery">
+      <img src="A.jpg" alt="" />
+      <img src="B.jpg" alt="Design Sample 2" />
+      <img src="C.jpg" alt="Design Sample 3" />
+      <img src="D.jpg" alt="Design Sample 4" />
+      <img src="E.jpg" alt="Design Sample 5" />
+      <img src="N.jpg" alt="Design Sample 6" />
+      <img src="J.jpg" alt="Design Sample 7" />
+      <img src="H.jpg" alt="Design Sample 8" />
+      <img src="G.jpg" alt="Design Sample 10" />
+      <img src="K.jpg" alt="Design Sample 11" />
+      <img src="L.jpg" alt="Design Sample 12" />
+      <img src="F.jpg" alt="Design Sample 14" />
+      <img src="P.jpg" alt="Design Sample 16" />
+    </div>
+  </section>
+
+  <section class="vector-graphics">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L12 22M2 12L22 12" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L12 22M2 12L22 12" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L12 22M2 12L22 12" /></svg>
+  </section>
+
+  <section class="contact" data-aos="fade-up">
+    <div class="contact-info">
+      <h2><i class="fas fa-envelope"></i> Contact</h2>
+      <div class="divider"></div>
+      <p>Email: shukria.raoufi@gmail.com</p>
+      <p>Phone: +93 798 280 886</p>
+      <p>Location: Herat, Afghanistan</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shokriya Raoufi. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100
+    });
+  </script>
+</body>
+</html>
